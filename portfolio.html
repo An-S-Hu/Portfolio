@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Anshu Gupta - Professional Portfolio | IT Specialist at Lincoln University College">
+    <title>Anshu Gupta | IT Professional Portfolio</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        :root {
+            /* Light Mode (Default) */
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+            --accent-color: #3498db;
+            --secondary-color: #2ecc71;
+            --tertiary-color: #e74c3c;
+            --section-bg: #ffffff;
+            --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            --footer-bg: #f0f0f0;
+            --footer-text: #555;
+            --text-muted: #6c757d;
+            
+            /* Variables for color RGB values for gradients */
+            --accent-color-rgb: 52, 152, 219;
+            --secondary-color-rgb: 46, 204, 113;
+            
+            /* Responsive breakpoints */
+            --mobile-width: 480px;
+            --tablet-width: 768px;
+            --desktop-width: 1024px;
+        }
+        
+        /* Dark Mode Colors */
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --accent-color: #3498db;
+            --secondary-color: #2ecc71;
+            --tertiary-color: #e74c3c;
+            --section-bg: #1e1e1e;
+            --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            --footer-bg: #181818;
+            --footer-text: #bbbbbb;
+            --text-muted: #a0a0a0;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-left: 20px;
+            color: var(--text-color);
+            font-size: 1.2rem;
+            padding: 8px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .theme-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        [data-theme="dark"] .theme-toggle .fa-moon {
+            display: none;
+        }
+        
+        [data-theme="dark"] .theme-toggle .fa-sun {
+            display: inline-block;
+        }
+        
+        .theme-toggle .fa-sun {
+            display: none;
+        }
+        
+        .theme-toggle .fa-moon {
+            display: inline-block;
+        }
+        
+        /* Advanced Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            overflow: hidden;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+        
+        .back-to-top::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+        
+        .back-to-top::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary-color), var(--tertiary-color));
+            opacity: 0;
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+        
+        .back-to-top i {
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .back-to-top:hover::before {
+            opacity: 0;
+        }
+        
+        .back-to-top:hover::after {
+            opacity: 1;
+        }
+        
+        .back-to-top:hover i {
+            transform: translateY(-3px);
+        }
+        
+        .back-to-top .tooltip {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            pointer-events: none;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-top:hover .tooltip {
+            opacity: 1;
+            top: -45px;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(52, 152, 219, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(52, 152, 219, 0); }
+        }
+    </style>
+    <style>
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(52, 152, 219, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(52, 152, 219, 0); }
+        }
+        
+        /* Mobile responsive styles */
+        @media (max-width: 480px) {
+            nav {
+                padding: 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                position: fixed;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: var(--section-bg);
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+                height: 0;
+                overflow: hidden;
+                transition: all 0.3s ease;
+                opacity: 0;
+                z-index: 1000;
+            }
+            
+            nav ul.active {
+                height: auto;
+                padding: 1rem 0;
+                opacity: 1;
+            }
+            
+            nav ul li {
+                width: 100%;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                padding: 1rem;
+                width: 100%;
+                display: block;
+            }
+            
+            .hamburger {
+                display: block;
+                cursor: pointer;
+            }
+            
+            header {
+                padding: 3rem 1rem;
+            }
+            
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            section {
+                padding: 2rem 1rem;
+            }
+            
+            .welcome-title {
+                font-size: 2rem;
+            }
+            
+            .welcome-stats {
+                flex-direction: column;
+                padding: 1.5rem;
+                gap: 1.5rem;
+            }
+            
+            .stat-divider {
+                width: 80%;
+                height: 1px;
+                margin: 0 auto;
+            }
+            
+            .education-timeline > div {
+                flex-direction: column;
+            }
+            
+            .education-timeline > div > div {
+                width: 100%;
+                text-align: center;
+                padding: 0 1rem 2rem 1rem;
+            }
+            
+            .education-timeline > div > div:last-child {
+                padding-top: 2rem;
+            }
+            
+            .education-timeline::before {
+                left: 50%;
+            }
+            
+            .project-card {
+                width: 100%;
+                min-width: unset;
+            }
+            
+            /* Footer responsive styling */
+            footer {
+                padding: 2rem 1rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .footer-column {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .footer-social-icons {
+                justify-content: center;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+            }
+        }
+        
+        /* Tablet responsive styles */
+        @media (min-width: 481px) and (max-width: 768px) {
+            nav ul {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background-color: var(--section-bg);
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+                height: 0;
+                overflow: hidden;
+                transition: all 0.3s ease;
+                opacity: 0;
+                z-index: 1000;
+            }
+            
+            nav ul.active {
+                height: auto;
+                padding: 1rem 0;
+                opacity: 1;
+            }
+            
+            nav ul li {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .hamburger {
+                display: block;
+                cursor: pointer;
+            }
+            
+            .project-card {
+                width: 48%;
+                min-width: unset;
+            }
+            
+            .welcome-cards {
+                gap: 1rem;
+            }
+            
+            /* Education timeline for tablets */
+            .education-timeline > div {
+                padding: 0 1.5rem;
+            }
+        }
+        
+        /* Ensure all sections have proper margins on mobile */
+        @media (max-width: 768px) {
+            section {
+                margin: 1.5rem auto;
+            }
+            
+            .welcome-content {
+                padding: 0 1rem;
+            }
+            
+            .contact-card {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+            
+            .contact-card > div:first-child {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .social-link {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    
+ 
+    <nav>
+        <div class="nav-brand" style="display: flex; align-items: center;">
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+        <div class="hamburger" id="navToggle">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <ul id="navMenu">
+            <li><a href="#Home" class="active"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#About"><i class="fas fa-user"></i> About</a></li>
+            <li><a href="#Education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+            <li><a href="#Skills"><i class="fas fa-code"></i> Skills</a></li>
+            <li><a href="#Projects"><i class="fas fa-briefcase"></i> Projects</a></li>
+            <li><a href="#Contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+    </nav>
+
+
+
+    <header class="fade-in" id="particles-js" style="position: relative; z-index: 1; padding: 4rem 0;">
+        <div style="position: relative; z-index: 3;">
+            <h1 style="font-size: 3.2rem; font-weight: 700; letter-spacing: 1px; margin-bottom: 0.5rem;">Anshu Gupta</h1>
+            <p class="typewriter" style="font-size: 1.2rem; font-weight: 300; letter-spacing: 3px; text-transform: uppercase; margin-top: 0.5rem; background: linear-gradient(135deg, var(--accent-color), var(--secondary-color), var(--tertiary-color), var(--accent-color)); background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; display: inline-block; animation: gradientShift 8s ease infinite; text-shadow: 0px 3px 5px rgba(0,0,0,0.05);">A Learner</p>
+        </div>
+    </header>
+
+    <img src="assets/images/Anshuu.jpg" alt="IT Professional" class="fade-in delay-1" style="border: 4px solid var(--accent-color); max-width: 100%; height: auto;">
+  
+    <style>
+        :root {
+            --accent-color-rgb: 52, 152, 219;
+            --secondary-color-rgb: 46, 204, 113;
+            --text-muted: #6c757d;
+        }
+        
+        .welcome-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--section-bg), #f8f9fa);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .welcome-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(var(--accent-color-rgb), 0.1) 0%, rgba(var(--accent-color-rgb), 0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .welcome-section::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            left: -150px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(var(--secondary-color-rgb), 0.05) 0%, rgba(var(--secondary-color-rgb), 0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .welcome-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .welcome-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+        
+        .welcome-title {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .title-underline {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+            margin: 0 auto;
+            border-radius: 4px;
+            animation: expandWidth 1.2s ease-out forwards;
+        }
+        
+        .welcome-description {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            text-align: center;
+            font-weight: 300;
+            line-height: 1.8;
+            color: var(--text-color);
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+            opacity: 0;
+        }
+        
+        .welcome-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .welcome-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+            opacity: 0;
+        }
+        
+        .welcome-card:nth-child(2) {
+            animation-delay: 0.6s;
+        }
+        
+        .welcome-card:nth-child(3) {
+            animation-delay: 0.8s;
+        }
+        
+        .welcome-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .welcome-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+            transition: all 0.3s ease;
+        }
+        
+        .welcome-card:hover::before {
+            height: 8px;
+        }
+        
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+        
+        .welcome-card:hover .card-icon {
+            transform: scale(1.1);
+            color: var(--secondary-color);
+        }
+        
+        .welcome-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        
+        .welcome-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+        }
+        
+        .welcome-stats {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 80px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            animation: fadeInUp 0.8s ease-out 1s forwards;
+            opacity: 0;
+        }
+        
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+        
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+        
+        .stat-divider {
+            width: 1px;
+            height: 50px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.1), rgba(0,0,0,0.05));
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes expandWidth {
+            from {
+                width: 0;
+            }
+            to {
+                width: 80px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .welcome-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .welcome-card {
+                max-width: 100%;
+            }
+            
+            .welcome-stats {
+                flex-direction: column;
+                padding: 2rem;
+                border-radius: 20px;
+            }
+            
+            .stat-divider {
+                width: 80%;
+                height: 1px;
+                margin: 1rem 0;
+            }
+            
+            .welcome-title {
+                font-size: 2.5rem;
+            }
+            
+            .welcome-description {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @keyframes blinkCursor {
+            from, to { border-color: transparent }
+            50% { border-color: var(--accent-color); }
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+    
+    <div id="Home" class="welcome-section fade-in delay-2">
+        <div class="welcome-content">
+            <div class="welcome-header">
+                <h1 class="welcome-title">Welcome to My Portfolio</h1>
+                <div class="title-underline"></div>
+            </div>
+            
+            <p class="welcome-description">Leveraging technical expertise and creative problem-solving to develop innovative solutions in information technology.</p>
+            
+            <div class="welcome-cards">
+                <div class="welcome-card">
+                    <div class="card-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>Creating responsive and intuitive web applications with modern frameworks and clean code practices.</p>
+                </div>
+                
+                <div class="welcome-card">
+                    <div class="card-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Machine Learning</h3>
+                    <p>Developing intelligent systems that learn from data and make predictions using statistical algorithms and models.</p>
+                </div>
+                
+                <div class="welcome-card">
+                    <div class="card-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Cyber Security</h3>
+                    <p>Implementing comprehensive security measures to protect systems and data from evolving threats.</p>
+                </div>
+            </div>
+            
+            <div class="welcome-stats">
+                <div class="stat-item">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                
+                <div class="stat-divider"></div>
+                
+                <div class="stat-item">
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">Technologies</span>
+                </div>
+                
+                <div class="stat-divider"></div>
+                
+                <div class="stat-item">
+                    <span class="stat-number">1+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="About" class="fade-in" style="padding: 3.5rem; border-radius: 12px; box-shadow: var(--card-shadow);">
+        <h2 style="font-size: 2.2rem; font-weight: 600; margin-bottom: 2rem; position: relative; display: inline-block;">
+            <span>About Me</span>
+            <span style="position: absolute; bottom: -5px; left: 0; width: 60%; height: 4px; background-color: var(--accent-color);"></span>
+        </h2>
+        
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem;">
+            <!-- Left column with personal info -->
+            <div style="flex: 1; min-width: 300px;">
+                <h3 style="font-size: 1.5rem; color: var(--accent-color); margin-bottom: 1.5rem; font-weight: 500;">Professional Summary</h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">I am a dedicated Information Technology student at Lincoln University College, Nepal, with a strong foundation in technical disciplines and problem-solving methodologies. My academic journey focuses on developing practical skills while understanding theoretical concepts that drive innovation in the IT sector.</p>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">My approach combines analytical thinking with creative solutions to address complex challenges in technology environments. I am committed to continuous learning and staying current with emerging technologies to deliver efficient and effective technical solutions.</p>
+                
+                <div style="margin-top: 2rem; background-color: rgba(52, 152, 219, 0.05); padding: 1.5rem; border-radius: 10px; border-left: 4px solid var(--accent-color);">
+                    <h4 style="margin-bottom: 1rem; font-size: 1.2rem; color: var(--accent-color);">Personal Details</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 0.8rem; display: flex; align-items: center;">
+                            <span style="min-width: 120px; font-weight: 500;"><i class="fas fa-map-marker-alt" style="color: var(--accent-color); margin-right: 10px;"></i>Location:</span>
+                            <span>Itahari, Sunsari, Nepal</span>
+                        </li>
+                        <li style="margin-bottom: 0.8rem; display: flex; align-items: center;">
+                            <span style="min-width: 120px; font-weight: 500;"><i class="fas fa-phone" style="color: var(--accent-color); margin-right: 10px;"></i>Phone:</span>
+                            <span>+977 9801991102</span>
+                        </li>
+                        <li style="margin-bottom: 0.8rem; display: flex; align-items: center;">
+                            <span style="min-width: 120px; font-weight: 500;"><i class="fas fa-envelope" style="color: var(--accent-color); margin-right: 10px;"></i>Email:</span>
+                            <span>anxshugupta@gmail.com</span>
+                        </li>
+                        <li style="margin-bottom: 0.8rem; display: flex; align-items: center;">
+                            <span style="min-width: 120px; font-weight: 500;"><i class="fas fa-graduation-cap" style="color: var(--accent-color); margin-right: 10px;"></i>Degree:</span>
+                            <span>Bachelor of Information Technology</span>
+                        </li>
+                        <li style="display: flex; align-items: center;">
+                            <span style="min-width: 120px; font-weight: 500;"><i class="fas fa-language" style="color: var(--accent-color); margin-right: 10px;"></i>Languages:</span>
+                            <span>English, Nepali, Hindi</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Right column with highlights and interests -->
+            <div style="flex: 1; min-width: 300px;">
+                <h3 style="font-size: 1.5rem; color: var(--accent-color); margin-bottom: 1.5rem; font-weight: 500;">Key Highlights</h3>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; align-items: center; margin-bottom: 0.8rem;">
+                        <div style="min-width: 40px; height: 40px; background-color: rgba(52, 152, 219, 0.1); border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-right: 15px;">
+                            <i class="fas fa-server" style="color: var(--accent-color); font-size: 1.2rem;"></i>
+                        </div>
+                        <div>
+                            <h4 style="margin: 0; font-size: 1.1rem; margin-bottom: 0.2rem;">Technical Proficiency</h4>
+                            <p style="margin: 0; font-size: 0.95rem; opacity: 0.8;">Strong foundation in programming languages and system architecture</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; align-items: center; margin-bottom: 0.8rem;">
+                        <div style="min-width: 40px; height: 40px; background-color: rgba(46, 204, 113, 0.1); border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-right: 15px;">
+                            <i class="fas fa-puzzle-piece" style="color: var(--secondary-color); font-size: 1.2rem;"></i>
+                        </div>
+                        <div>
+                            <h4 style="margin: 0; font-size: 1.1rem; margin-bottom: 0.2rem;">Problem Solving</h4>
+                            <p style="margin: 0; font-size: 0.95rem; opacity: 0.8;">Analytical approach to complex technical challenges</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; align-items: center; margin-bottom: 0.8rem;">
+                        <div style="min-width: 40px; height: 40px; background-color: rgba(155, 89, 182, 0.1); border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-right: 15px;">
+                            <i class="fas fa-users" style="color: #9b59b6; font-size: 1.2rem;"></i>
+                        </div>
+                        <div>
+                            <h4 style="margin: 0; font-size: 1.1rem; margin-bottom: 0.2rem;">Team Collaboration</h4>
+                            <p style="margin: 0; font-size: 0.95rem; opacity: 0.8;">Experience in cooperative project development environments</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; align-items: center; margin-bottom: 0.8rem;">
+                        <div style="min-width: 40px; height: 40px; background-color: rgba(231, 76, 60, 0.1); border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-right: 15px;">
+                            <i class="fas fa-rocket" style="color: var(--tertiary-color); font-size: 1.2rem;"></i>
+                        </div>
+                        <div>
+                            <h4 style="margin: 0; font-size: 1.1rem; margin-bottom: 0.2rem;">Continuous Learning</h4>
+                            <p style="margin: 0; font-size: 0.95rem; opacity: 0.8;">Commitment to staying updated with emerging technologies</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 style="font-size: 1.5rem; color: var(--accent-color); margin: 2rem 0 1.5rem; font-weight: 500;">Areas of Interest</h3>
+                
+                <!-- Interests in a single column -->
+                <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                    <span style="background: rgba(52, 152, 219, 0.1); color: var(--accent-color); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.9rem; display: inline-flex; align-items: center; max-width: fit-content;">
+                        <i class="fas fa-database" style="margin-right: 8px;"></i> Data Management
+                    </span>
+                    <span style="background: rgba(46, 204, 113, 0.1); color: var(--secondary-color); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.9rem; display: inline-flex; align-items: center; max-width: fit-content;">
+                        <i class="fas fa-mobile-alt" style="margin-right: 8px;"></i> Mobile Development
+                    </span>
+                    <span style="background: rgba(155, 89, 182, 0.1); color: #9b59b6; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.9rem; display: inline-flex; align-items: center; max-width: fit-content;">
+                        <i class="fas fa-shield-alt" style="margin-right: 8px;"></i> Cyber Security
+                    </span>
+                    <span style="background: rgba(231, 76, 60, 0.1); color: var(--tertiary-color); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.9rem; display: inline-flex; align-items: center; max-width: fit-content;">
+                        <i class="fas fa-cloud" style="margin-right: 8px;"></i> Cloud Computing
+                    </span>
+                    <span style="background: rgba(52, 152, 219, 0.1); color: var(--accent-color); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.9rem; display: inline-flex; align-items: center; max-width: fit-content;">
+                        <i class="fas fa-brain" style="margin-right: 8px;"></i> Machine Learning
+                    </span>
+                    <span style="background: rgba(46, 204, 113, 0.1); color: var(--secondary-color); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.9rem; display: inline-flex; align-items: center; max-width: fit-content;">
+                        <i class="fas fa-robot" style="margin-right: 8px;"></i> Artificial Intelligence
+                    </span>
+                    <span style="background: rgba(241, 196, 15, 0.1); color: #f1c40f; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.9rem; display: inline-flex; align-items: center; max-width: fit-content;">
+                        <i class="fas fa-microchip" style="margin-right: 8px;"></i> IoT Development
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Education" class="fade-in" style="background: var(--bg-color); padding: 4rem 3rem; text-align: center; border-radius: 12px;">
+        <h2 style="font-size: 2.2rem; color: var(--text-color); margin-bottom: 3rem; font-weight: 600; position: relative; display: inline-block;">
+            <span>Academic Journey</span>
+            <span style="position: absolute; bottom: -5px; left: 0; width: 60%; height: 4px; background-color: var(--accent-color);"></span>
+        </h2>
+        
+        <div class="education-timeline" style="max-width: 900px; margin: 0 auto; position: relative;">
+            <!-- Timeline center line -->
+            <div style="position: absolute; top: 0; bottom: 0; left: 50%; width: 4px; background-color: rgba(52, 152, 219, 0.2); transform: translateX(-50%); border-radius: 4px;"></div>
+            
+            <!-- Bachelor Degree -->
+            <div class="fade-in delay-1" style="display: flex; margin-bottom: 4rem; position: relative;">
+                <div style="flex: 1; padding-right: 3rem; text-align: right;">
+                    <div style="background: var(--section-bg); padding: 1.8rem; border-radius: 12px; box-shadow: var(--card-shadow); transition: all 0.3s ease; position: relative;">
+                        <span style="position: absolute; right: -12px; top: 50%; transform: translateY(-50%); width: 25px; height: 25px; background-color: var(--accent-color); border-radius: 50%; z-index: 2; box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.2);"></span>
+                        <h3 style="font-size: 1.8rem; color: var(--accent-color); margin-bottom: 0.8rem; font-weight: 600;">Bachelor of Information Technology</h3>
+                        <p style="font-size: 1rem; color: var(--text-color); margin-bottom: 0.5rem; font-weight: 500;">Lincoln University College, Malaysia</p>
+                        <div style="display: inline-block; background: rgba(52, 152, 219, 0.1); padding: 0.4rem 1rem; border-radius: 30px; margin-bottom: 1rem;">
+                            <span style="color: var(--accent-color); font-weight: 500; font-size: 0.9rem;"><i class="fas fa-calendar-alt" style="margin-right: 8px;"></i>2023 - Present</span>
+                        </div>
+                        <p style="color: var(--text-color); line-height: 1.6; text-align: right;">Currently pursuing specialized coursework in software development, data management, and network infrastructure. Developing expertise in systems analysis, programming fundamentals, and collaborative problem-solving through applied project work.</p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: flex-end; margin-top: 1rem;">
+                            <span style="background: rgba(52, 152, 219, 0.1); color: var(--accent-color); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500;">
+                                <i class="fas fa-code" style="margin-right: 5px;"></i> Programming
+                            </span>
+                            <span style="background: rgba(46, 204, 113, 0.1); color: var(--secondary-color); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500;">
+                                <i class="fas fa-database" style="margin-right: 5px;"></i> Databases
+                            </span>
+                            <span style="background: rgba(155, 89, 182, 0.1); color: #9b59b6; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500;">
+                                <i class="fas fa-network-wired" style="margin-right: 5px;"></i> Networking
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div style="flex: 1;"></div>
+            </div>
+            
+            <!-- Higher Secondary Education -->
+            <div class="fade-in delay-2" style="display: flex; margin-bottom: 4rem; position: relative;">
+                <div style="flex: 1;"></div>
+                <div style="flex: 1; padding-left: 3rem; text-align: left;">
+                    <div style="background: var(--section-bg); padding: 1.8rem; border-radius: 12px; box-shadow: var(--card-shadow); transition: all 0.3s ease; position: relative;">
+                        <span style="position: absolute; left: -12px; top: 50%; transform: translateY(-50%); width: 25px; height: 25px; background-color: var(--secondary-color); border-radius: 50%; z-index: 2; box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.2);"></span>
+                        <h3 style="font-size: 1.8rem; color: var(--secondary-color); margin-bottom: 0.8rem; font-weight: 600;">Higher Secondary Education</h3>
+                        <p style="font-size: 1rem; color: var(--text-color); margin-bottom: 0.5rem; font-weight: 500;">Sushma Godawari College</p>
+                        <div style="display: inline-block; background: rgba(46, 204, 113, 0.1); padding: 0.4rem 1rem; border-radius: 30px; margin-bottom: 1rem;">
+                            <span style="color: var(--secondary-color); font-weight: 500; font-size: 0.9rem;"><i class="fas fa-calendar-alt" style="margin-right: 8px;"></i>2020 - 2022</span>
+                        </div>
+                        <p style="color: var(--text-color); line-height: 1.6; text-align: left;">Completed advanced studies in science and mathematics with distinction. Developed strong analytical and quantitative reasoning skills that form the foundation for further technical education in information technology.</p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: flex-start; margin-top: 1rem;">
+                            <span style="background: rgba(52, 152, 219, 0.1); color: var(--accent-color); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; display: inline-flex; align-items: center;">
+                                <i class="fas fa-flask" style="margin-right: 5px;"></i> Science
+                            </span>
+                            <span style="background: rgba(46, 204, 113, 0.1); color: var(--secondary-color); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; display: inline-flex; align-items: center;">
+                                <i class="fas fa-calculator" style="margin-right: 5px;"></i> Mathematics
+
+                            </span>
+                            <span style="background: rgba(155, 89, 182, 0.1); color: #9b59b6; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; display: inline-flex; align-items: center;">
+                                <i class="fas fa-laptop" style="margin-right: 5px;"></i> Computer Science
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Secondary Education -->
+            <div class="fade-in delay-3" style="display: flex; position: relative;">
+                <div style="flex: 1; padding-right: 3rem; text-align: right;">
+                    <div style="background: var(--section-bg); padding: 1.8rem; border-radius: 12px; box-shadow: var(--card-shadow); transition: all 0.3s ease; position: relative;">
+                        <span style="position: absolute; right: -12px; top: 50%; transform: translateY(-50%); width: 25px; height: 25px; background-color: var(--tertiary-color); border-radius: 50%; z-index: 2; box-shadow: 0 0 0 4px rgba(231, 76, 60, 0.2);"></span>
+                        <h3 style="font-size: 1.8rem; color: var(--tertiary-color); margin-bottom: 0.8rem; font-weight: 600;">Secondary Education</h3>
+                        <p style="font-size: 1rem; color: var(--text-color); margin-bottom: 0.5rem; font-weight: 500;">Khanar Sunshine Second Boarding School</p>
+                        <div style="display: inline-block; background: rgba(231, 76, 60, 0.1); padding: 0.4rem 1rem; border-radius: 30px; margin-bottom: 1rem;">
+                            <span style="color: var(--tertiary-color); font-weight: 500; font-size: 0.9rem;"><i class="fas fa-calendar-alt" style="margin-right: 8px;"></i>2018 - 2020</span>
+                        </div>
+                        <p style="color: var(--text-color); line-height: 1.6; text-align: right;">Graduated with honors, demonstrating excellence in core academic subjects. Participated in various leadership roles and technical projects that fostered collaborative skills and a foundation for future academic pursuits.</p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: flex-end; margin-top: 1rem;">
+                            <span style="background: rgba(52, 152, 219, 0.1); color: var(--accent-color); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; display: inline-flex; align-items: center;">
+                                <i class="fas fa-book" style="margin-right: 5px;"></i> Academics
+                            </span>
+                            <span style="background: rgba(46, 204, 113, 0.1); color: var(--secondary-color); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; display: inline-flex; align-items: center;">
+                                <i class="fas fa-users" style="margin-right: 5px;"></i> Leadership
+                            </span>
+                            <span style="background: rgba(155, 89, 182, 0.1); color: #9b59b6; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; display: inline-flex; align-items: center;">
+                                <i class="fas fa-project-diagram" style="margin-right: 5px;"></i> Projects
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div style="flex: 1;"></div>
+            </div>
+            
+            <!-- End dot -->
+            <div style="position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 15px; height: 15px; background-color: var(--accent-color); border-radius: 50%; z-index: 2; box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.2);"></div>
+        </div>
+    </section>
+
+    <section id="Skills" class="fade-in" style="background: var(--section-bg); padding: 4rem 3rem; text-align: center; border-radius: 12px; max-width: 800px;">
+        <h2 style="font-size: 2.2rem; color: var(--text-color); margin-bottom: 3rem; font-weight: 600; position: relative; display: inline-block;">
+            <span>Technical Skills</span>
+            <span style="position: absolute; bottom: -5px; left: 0; width: 60%; height: 4px; background-color: var(--accent-color);"></span>
+        </h2>
+        
+        <div class="skills-container" style="max-width: 700px; margin: 0 auto;">
+            <!-- Programming Languages -->
+            <div style="margin-bottom: 3rem; text-align: left;">
+                <h3 style="color: var(--accent-color); font-size: 1.4rem; margin-bottom: 1.5rem; font-weight: 500;">Programming Languages</h3>
+                
+                <div class="skill-item" style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="font-weight: 500; color: var(--text-color);">JavaScript</span>
+                        <span style="color: var(--text-color); opacity: 0.8;">85%</span>
+                    </div>
+                    <div style="height: 10px; background-color: rgba(0,0,0,0.05); border-radius: 10px; overflow: hidden;">
+                        <div class="progress-bar" style="width: 85%; height: 100%; background-color: var(--accent-color); border-radius: 10px; transition: width 1.5s ease-in-out;"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item" style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="font-weight: 500; color: var(--text-color);">Python</span>
+                        <span style="color: var(--text-color); opacity: 0.8;">78%</span>
+                    </div>
+                    <div style="height: 10px; background-color: rgba(0,0,0,0.05); border-radius: 10px; overflow: hidden;">
+                        <div class="progress-bar" style="width: 78%; height: 100%; background-color: var(--accent-color); border-radius: 10px; transition: width 1.5s ease-in-out;"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item" style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="font-weight: 500; color: var(--text-color);">HTML/CSS</span>
+                        <span style="color: var(--text-color); opacity: 0.8;">90%</span>
+                    </div>
+                    <div style="height: 10px; background-color: rgba(0,0,0,0.05); border-radius: 10px; overflow: hidden;">
+                        <div class="progress-bar" style="width: 90%; height: 100%; background-color: var(--accent-color); border-radius: 10px; transition: width 1.5s ease-in-out;"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item" style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="font-weight: 500; color: var(--text-color);">React</span>
+                        <span style="color: var(--text-color); opacity: 0.8;">80%</span>
+                    </div>
+                    <div style="height: 10px; background-color: rgba(0,0,0,0.05); border-radius: 10px; overflow: hidden;">
+                        <div class="progress-bar" style="width: 80%; height: 100%; background-color: var(--accent-color); border-radius: 10px; transition: width 1.5s ease-in-out;"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item" style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="font-weight: 500; color: var(--text-color);">C</span>
+                        <span style="color: var(--text-color); opacity: 0.8;">75%</span>
+                    </div>
+                    <div style="height: 10px; background-color: rgba(0,0,0,0.05); border-radius: 10px; overflow: hidden;">
+                        <div class="progress-bar" style="width: 75%; height: 100%; background-color: var(--accent-color); border-radius: 10px; transition: width 1.5s ease-in-out;"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item" style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="font-weight: 500; color: var(--text-color);">Java</span>
+                        <span style="color: var(--text-color); opacity: 0.8;">77%</span>
+                    </div>
+                    <div style="height: 10px; background-color: rgba(0,0,0,0.05); border-radius: 10px; overflow: hidden;">
+                        <div class="progress-bar" style="width: 77%; height: 100%; background-color: var(--accent-color); border-radius: 10px; transition: width 1.5s ease-in-out;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Projects" class="fade-in" style="background: var(--bg-color); padding: 4rem 2rem; text-align: center; border-radius: 12px; max-width: 1200px; margin: 3rem auto;">
+        <h2 style="font-size: 2.2rem; color: var(--text-color); margin-bottom: 3rem; font-weight: 600; position: relative; display: inline-block;">
+            <span>Recent Projects</span>
+            <span style="position: absolute; bottom: -5px; left: 0; width: 60%; height: 4px; background-color: var(--accent-color);"></span>
+        </h2>
+        
+        <div style="display: flex; flex-wrap: nowrap; justify-content: space-between; gap: 1.5rem; margin-top: 3rem; overflow-x: auto; padding-bottom: 1rem;">
+            <!-- Project Card 1 - Jarvis -->
+            <div class="project-card fade-in delay-1" style="width: 32%; min-width: 300px; background: var(--section-bg); border-radius: 12px; overflow: hidden; box-shadow: var(--card-shadow); transition: all 0.3s ease; display: flex; flex-direction: column;">
+                <div style="height: 200px; overflow: hidden; position: relative; background-color: #f0f0f0;">
+                    <div style="padding: 2rem; display: flex; justify-content: center; align-items: center; height: 100%; background-color: var(--accent-color); opacity: 0.8;">
+                        <i class="fas fa-robot" style="font-size: 4rem; color: white;"></i>
+                    </div>
+                </div>
+                <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column;">
+                    <h3 style="margin-bottom: 1rem; font-size: 1.4rem; color: var(--accent-color);">Jarvis AI Assistant</h3>
+                    <p style="margin-bottom: 1.5rem; color: var(--text-color); font-size: 0.95rem; line-height: 1.6; flex-grow: 1;">Developed a voice-controlled AI assistant capable of performing various tasks, including web searches, setting reminders, and controlling smart home devices.</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="background: rgba(52, 152, 219, 0.15); color: var(--accent-color); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500;">Python</span>
+                        <span style="background: rgba(46, 204, 113, 0.15); color: var(--secondary-color); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500;">NLP</span>
+                        <span style="background: rgba(155, 89, 182, 0.15); color: #9b59b6; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500;">APIs</span>
+                    </div>
+                    <a href="#" class="hover-effect" style="display: inline-block; padding: 0.6rem 1.5rem; background: var(--accent-color); color: white; text-decoration: none; border-radius: 30px; font-weight: 500; font-size: 0.9rem;">View Project</a>
+                </div>
+            </div>
+            
+            <!-- Project Card 2 -->
+            <div class="project-card fade-in delay-2" style="width: 32%; min-width: 300px; background: var(--section-bg); border-radius: 12px; overflow: hidden; box-shadow: var(--card-shadow); transition: all 0.3s ease; display: flex; flex-direction: column;">
+                <div style="height: 200px; overflow: hidden; position: relative; background-color: #f0f0f0;">
+                    <div style="padding: 2rem; display: flex; justify-content: center; align-items: center; height: 100%; background-color: var(--secondary-color); opacity: 0.8;">
+                        <i class="fas fa-mobile-alt" style="font-size: 4rem; color: white;"></i>
+                    </div>
+                </div>
+                <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column;">
+                    <h3 style="margin-bottom: 1rem; font-size: 1.4rem; color: var(--secondary-color);">E-Commerce Mobile App</h3>
+                    <p style="margin-bottom: 1.5rem; color: var(--text-color); font-size: 0.95rem; line-height: 1.6; flex-grow: 1;">Created a responsive mobile application for e-commerce with features including user authentication, product browsing, and secure checkout process.</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="background: rgba(231, 76, 60, 0.15); color: var(--tertiary-color); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500;">React Native</span>
+                        <span style="background: rgba(52, 152, 219, 0.15); color: var(--accent-color); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500;">Firebase</span>
+                        <span style="background: rgba(243, 156, 18, 0.15); color: #f39c12; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500;">Redux</span>
+                    </div>
+                    <a href="#" class="hover-effect" style="display: inline-block; padding: 0.6rem 1.5rem; background: var(--secondary-color); color: white; text-decoration: none; border-radius: 30px; font-weight: 500; font-size: 0.9rem;">View Project</a>
+                </div>
+            </div>
+            
+            <!-- Project Card 3 -->
+            <div class="project-card fade-in delay-3" style="width: 32%; min-width: 300px; background: var(--section-bg); border-radius: 12px; overflow: hidden; box-shadow: var(--card-shadow); transition: all 0.3s ease; display: flex; flex-direction: column;">
+                <div style="height: 200px; overflow: hidden; position: relative; background-color: #f0f0f0;">
+                    <div style="padding: 2rem; display: flex; justify-content: center; align-items: center; height: 100%; background-color: var(--tertiary-color); opacity: 0.8;">
+                        <i class="fas fa-share-alt" style="font-size: 4rem; color: white;"></i>
+                    </div>
+                </div>
+                <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column;">
+                    <h3 style="margin-bottom: 1rem; font-size: 1.4rem; color: var(--tertiary-color);">FastShare</h3>
+                    <p style="margin-bottom: 1.5rem; color: var(--text-color); font-size: 0.95rem; line-height: 1.6; flex-grow: 1;">Built a secure file sharing platform that enables quick and easy transfer of large files with end-to-end encryption and customizable expiration settings.</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="background: rgba(46, 204, 113, 0.15); color: var(--secondary-color); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500;">JavaScript</span>
+                        <span style="background: rgba(52, 152, 219, 0.15); color: var(--accent-color); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500;">Node.js</span>
+                        <span style="background: rgba(155, 89, 182, 0.15); color: #9b59b6; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500;">MongoDB</span>
+                    </div>
+                    <a href="#" class="hover-effect" style="display: inline-block; padding: 0.6rem 1.5rem; background: var(--tertiary-color); color: white; text-decoration: none; border-radius: 30px; font-weight: 500; font-size: 0.9rem;">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Contact" class="fade-in" style="padding: 3rem; text-align: center; border-radius: 12px; box-shadow: var(--card-shadow); max-width: 1000px; margin: 3rem auto; background-color: var(--section-bg);">
+        <h2 style="font-size: 2.2rem; margin-bottom: 2.5rem; color: var(--text-color); position: relative; display: inline-block;">
+            <span style="position: relative; z-index: 1;">Let's Connect</span>
+            <span style="position: absolute; bottom: -5px; left: 0; width: 60%; height: 4px; background-color: var(--accent-color); z-index: 0;"></span>
+        </h2>
+        
+        <p style="font-size: 1.1rem; margin-bottom: 3rem; color: var(--text-color); max-width: 550px; margin-left: auto; margin-right: auto; line-height: 1.8;">Available for professional inquiries regarding technology projects, collaborations, and career opportunities. I welcome the chance to discuss how my technical expertise could be of value to your organization.</p>
+        
+        <!-- Contact Information and Form Container -->
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 2rem; text-align: left;">
+            <!-- Contact Information Cards -->
+            <div style="flex: 1; min-width: 300px;">
+                <h3 style="font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--text-color); font-weight: 500; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-address-card" style="color: var(--accent-color);"></i>
+                    Contact Information
+                </h3>
+                
+                <div style="display: flex; flex-direction: column; gap: 1.2rem;">
+                    <!-- Email -->
+                    <div class="contact-card" style="display: flex; align-items: center; padding: 1rem; border-radius: 8px; background-color: rgba(0,0,0,0.03); transition: all 0.3s ease; cursor: pointer;">
+                        <div style="background-color: var(--accent-color); width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-right: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                            <i class="fas fa-envelope" style="color: white; font-size: 18px;"></i>
+                </div>
+                        <div>
+                            <p style="font-weight: 500; margin-bottom: 4px; color: var(--text-color);">Email</p>
+                            <a href="mailto:anxshugupta@gmail.com" style="color: var(--text-muted); text-decoration: none; font-size: 0.95rem; transition: all 0.3s ease;">anxshugupta@gmail.com</a>
+            </div>
+        </div>
+        
+                    <!-- Phone -->
+                    <div class="contact-card" style="display: flex; align-items: center; padding: 1rem; border-radius: 8px; background-color: rgba(0,0,0,0.03); transition: all 0.3s ease; cursor: pointer;">
+                        <div style="background-color: #2ecc71; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-right: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                            <i class="fas fa-phone-alt" style="color: white; font-size: 18px;"></i>
+                    </div>
+                        <div>
+                            <p style="font-weight: 500; margin-bottom: 4px; color: var(--text-color);">Phone</p>
+                            <a href="tel:+9779801991102" style="color: var(--text-muted); text-decoration: none; font-size: 0.95rem; transition: all 0.3s ease;">+977 9801991102</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Location -->
+                    <div class="contact-card" style="display: flex; align-items: center; padding: 1rem; border-radius: 8px; background-color: rgba(0,0,0,0.03); transition: all 0.3s ease; cursor: pointer;">
+                        <div style="background-color: #e74c3c; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-right: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                            <i class="fas fa-map-marker-alt" style="color: white; font-size: 18px;"></i>
+                        </div>
+                        <div>
+                            <p style="font-weight: 500; margin-bottom: 4px; color: var(--text-color);">Location</p>
+                            <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">Itahari, Sunsari, Nepal</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Availability -->
+                    <div class="contact-card" style="display: flex; align-items: center; padding: 1rem; border-radius: 8px; background-color: rgba(0,0,0,0.03); transition: all 0.3s ease; cursor: pointer;">
+                        <div style="background-color: #9b59b6; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-right: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                            <i class="fas fa-calendar-check" style="color: white; font-size: 18px;"></i>
+                        </div>
+                        <div>
+                            <p style="font-weight: 500; margin-bottom: 4px; color: var(--text-color);">Availability</p>
+                            <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">Open to freelance opportunities</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Form -->
+            <div style="flex: 1; min-width: 300px; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.05); transition: all 0.3s ease;">
+                <h3 style="font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--text-color); font-weight: 500; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-paper-plane" style="color: var(--accent-color);"></i>
+                    Send Me a Message
+                </h3>
+                
+                <form id="contactForm" style="display: flex; flex-direction: column; gap: 1.2rem;">
+                    <div style="position: relative;">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required style="width: 100%; padding: 12px 15px 12px 45px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); font-family: 'Poppins', sans-serif; font-size: 1rem; outline: none; transition: all 0.3s ease;">
+                        <i class="fas fa-user" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--accent-color);"></i>
+                    </div>
+                    
+                    <div style="position: relative;">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 12px 15px 12px 45px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); font-family: 'Poppins', sans-serif; font-size: 1rem; outline: none; transition: all 0.3s ease;">
+                        <i class="fas fa-envelope" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--accent-color);"></i>
+                    </div>
+                    
+                    <div style="position: relative;">
+                        <input type="text" id="subject" name="subject" placeholder="Subject" required style="width: 100%; padding: 12px 15px 12px 45px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); font-family: 'Poppins', sans-serif; font-size: 1rem; outline: none; transition: all 0.3s ease;">
+                        <i class="fas fa-tag" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--accent-color);"></i>
+                    </div>
+                    
+                    <div style="position: relative;">
+                        <textarea id="message" name="message" placeholder="Your Message" required style="width: 100%; height: 150px; padding: 12px 15px 12px 45px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); font-family: 'Poppins', sans-serif; font-size: 1rem; outline: none; resize: none; transition: all 0.3s ease;"></textarea>
+                        <i class="fas fa-comment-alt" style="position: absolute; left: 15px; top: 15px; color: var(--accent-color);"></i>
+                    </div>
+                    
+                    <button type="submit" style="background: linear-gradient(135deg, var(--accent-color), #2980b9); color: white; border: none; padding: 12px 25px; border-radius: 50px; cursor: pointer; font-size: 1rem; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s ease;">
+                        <span>Send Message</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    
+                    <div id="formStatus" style="margin-top: 10px; padding: 10px; border-radius: 8px; text-align: center; display: none;"></div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Map Section -->
+        <div style="margin-top: 3rem; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.05);">
+            <h3 style="font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--text-color); font-weight: 500; display: flex; align-items: center; gap: 10px; text-align: left;">
+                <i class="fas fa-map-marked-alt" style="color: var(--accent-color);"></i>
+                My Location
+            </h3>
+            
+            <div style="border-radius: 12px; overflow: hidden; height: 300px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114161.8234937776!2d87.1833724!3d26.673631200000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef6c66e80fb5e5%3A0x38094d1a70d37655!2sItahari%2C%20Nepal!5e0!3m2!1sen!2sus!4v1709818325138!5m2!1sen!2sus" 
+                     width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        
+        <!-- Social Media Links -->
+        <div style="margin-top: 3rem; background-color: rgba(0, 0, 0, 0.02); padding: 2rem; border-radius: 12px;">
+            <h3 style="font-size: 1.4rem; margin-bottom: 2rem; color: var(--text-color); font-weight: 500;">Connect With Me</h3>
+            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <a href="https://www.facebook.com/profile.php?id=100063725828746" target="_blank" rel="noopener noreferrer" class="social-link" style="display: flex; align-items: center; text-decoration: none; background-color: #1877F2; color: white; padding: 12px 20px; border-radius: 10px; transition: all 0.3s ease; gap: 10px; min-width: 160px; box-shadow: 0 6px 15px rgba(24, 119, 242, 0.2);">
+                    <div style="background-color: rgba(255, 255, 255, 0.2); width: 38px; height: 38px; border-radius: 8px; display: flex; justify-content: center; align-items: center; margin-right: 5px; transition: all 0.3s ease;">
+                        <i class="fab fa-facebook-f" style="font-size: 20px;"></i>
+                    </div>
+                    <span style="font-weight: 500;">Facebook</span>
+                </a>
+                
+                <a href="https://www.instagram.com/maybe._anshu/" target="_blank" rel="noopener noreferrer" class="social-link" style="display: flex; align-items: center; text-decoration: none; background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); color: white; padding: 12px 20px; border-radius: 10px; transition: all 0.3s ease; gap: 10px; min-width: 160px; box-shadow: 0 6px 15px rgba(193, 53, 132, 0.2);">
+                    <div style="background-color: rgba(255, 255, 255, 0.2); width: 38px; height: 38px; border-radius: 8px; display: flex; justify-content: center; align-items: center; margin-right: 5px; transition: all 0.3s ease;">
+                        <i class="fab fa-instagram" style="font-size: 20px;"></i>
+                    </div>
+                    <span style="font-weight: 500;">Instagram</span>
+                </a>
+                
+                <a href="https://www.linkedin.com/in/anshu-gupta-025188356" target="_blank" rel="noopener noreferrer" class="social-link" style="display: flex; align-items: center; text-decoration: none; background-color: #0077B5; color: white; padding: 12px 20px; border-radius: 10px; transition: all 0.3s ease; gap: 10px; min-width: 160px; box-shadow: 0 6px 15px rgba(0, 119, 181, 0.2);">
+                    <div style="background-color: rgba(255, 255, 255, 0.2); width: 38px; height: 38px; border-radius: 8px; display: flex; justify-content: center; align-items: center; margin-right: 5px; transition: all 0.3s ease;">
+                        <i class="fab fa-linkedin-in" style="font-size: 20px;"></i>
+                    </div>
+                    <span style="font-weight: 500;">LinkedIn</span>
+                </a>
+                
+                <a href="https://github.com/An-S-Hu" target="_blank" rel="noopener noreferrer" class="social-link" style="display: flex; align-items: center; text-decoration: none; background-color: #333; color: white; padding: 12px 20px; border-radius: 10px; transition: all 0.3s ease; gap: 10px; min-width: 160px; box-shadow: 0 6px 15px rgba(51, 51, 51, 0.2);">
+                    <div style="background-color: rgba(255, 255, 255, 0.2); width: 38px; height: 38px; border-radius: 8px; display: flex; justify-content: center; align-items: center; margin-right: 5px; transition: all 0.3s ease;">
+                        <i class="fab fa-github" style="font-size: 20px;"></i>
+                    </div>
+                    <span style="font-weight: 500;">GitHub</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+        <span class="tooltip">Back to top</span>
+    </a>
+    
+    <script>
+        // Dark mode toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('themeToggle');
+            
+            // Check for saved theme preference or use device preference
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+            
+            if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+            
+            // Theme toggle button
+            themeToggle.addEventListener('click', function() {
+                let currentTheme = document.documentElement.getAttribute('data-theme');
+                let newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
+            
+            // Contact form handling
+            const contactForm = document.getElementById('contactForm');
+            const formStatus = document.getElementById('formStatus');
+            
+            // Add typewriter effect to the "A Learner" text
+            const typewriterElement = document.querySelector('.typewriter');
+            if (typewriterElement) {
+                const text = typewriterElement.textContent;
+                typewriterElement.textContent = "";
+                typewriterElement.style.borderRight = "3px solid var(--accent-color)";
+                typewriterElement.style.animation = "blinkCursor 0.8s step-end infinite";
+                let i = 0;
+                const typeWriter = () => {
+                    if (i < text.length) {
+                        typewriterElement.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 150);
+                    } else {
+                        // After typing completes, add the gradient animation
+                        setTimeout(() => {
+                            typewriterElement.style.borderRight = "none";
+                            typewriterElement.style.animation = "gradientShift 8s ease infinite";
+                        }, 1000);
+                    }
+                };
+                setTimeout(typeWriter, 1000);
+            }
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Basic form validation
+                    const name = document.getElementById('name').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const subject = document.getElementById('subject').value.trim();
+                    const message = document.getElementById('message').value.trim();
+                    
+                    if (!name || !email || !subject || !message) {
+                        showFormStatus('Please fill in all fields', 'error');
+                        return;
+                    }
+                    
+                    if (!isValidEmail(email)) {
+                        showFormStatus('Please enter a valid email address', 'error');
+                        return;
+                    }
+                    
+                    // Simulate form submission
+                    showFormStatus('Sending your message...', 'info');
+                    
+                    // Simulate API call with timeout
+                    setTimeout(() => {
+                        showFormStatus('Your message has been sent successfully! I\'ll get back to you soon.', 'success');
+                        contactForm.reset();
+                    }, 1500);
+                });
+            }
+            
+            // Email validation helper
+            function isValidEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+            
+            // Display form status message
+            function showFormStatus(message, type) {
+                formStatus.textContent = message;
+                formStatus.style.display = 'block';
+                
+                // Reset classes
+                formStatus.className = '';
+                formStatus.classList.add('form-status');
+                
+                if (type === 'error') {
+                    formStatus.style.backgroundColor = 'rgba(231, 76, 60, 0.1)';
+                    formStatus.style.color = '#e74c3c';
+                    formStatus.style.border = '1px solid rgba(231, 76, 60, 0.2)';
+                } else if (type === 'success') {
+                    formStatus.style.backgroundColor = 'rgba(46, 204, 113, 0.1)';
+                    formStatus.style.color = '#27ae60';
+                    formStatus.style.border = '1px solid rgba(46, 204, 113, 0.2)';
+                } else {
+                    formStatus.style.backgroundColor = 'rgba(52, 152, 219, 0.1)';
+                    formStatus.style.color = '#3498db';
+                    formStatus.style.border = '1px solid rgba(52, 152, 219, 0.2)';
+                }
+                
+                // Clear message after 5 seconds
+                if (type === 'error' || type === 'success') {
+                    setTimeout(() => {
+                        formStatus.style.display = 'none';
+                    }, 5000);
+                }
+            }
+            
+            // Add hover effects for contact cards
+            const contactCards = document.querySelectorAll('.contact-card');
+            contactCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 10px 25px rgba(0,0,0,0.1)';
+                    this.style.backgroundColor = 'rgba(0,0,0,0.05)';
+                    
+                    const icon = this.querySelector('div');
+                    if (icon) {
+                        icon.style.transform = 'scale(1.1) rotate(10deg)';
+                    }
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                    this.style.backgroundColor = 'rgba(0,0,0,0.03)';
+                    
+                    const icon = this.querySelector('div');
+                    if (icon) {
+                        icon.style.transform = 'scale(1) rotate(0)';
+                    }
+                });
+            });
+            
+            // Add hover effects for social links
+            const socialLinks = document.querySelectorAll('.social-link');
+            socialLinks.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    const icon = this.querySelector('div');
+                    if (icon) {
+                        icon.style.transform = 'scale(1.1) rotate(5deg)';
+                    }
+                });
+                
+                link.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    const icon = this.querySelector('div');
+                    if (icon) {
+                        icon.style.transform = 'scale(1) rotate(0)';
+                    }
+                });
+            });
+            
+            // Form fields focus effects
+            const formFields = document.querySelectorAll('#contactForm input, #contactForm textarea');
+            formFields.forEach(field => {
+                field.addEventListener('focus', function() {
+                    this.style.boxShadow = '0 0 0 3px rgba(52, 152, 219, 0.2)';
+                    this.style.borderColor = 'var(--accent-color)';
+                });
+                
+                field.addEventListener('blur', function() {
+                    this.style.boxShadow = 'none';
+                    this.style.borderColor = 'rgba(0,0,0,0.1)';
+                });
+            });
+        });
+        
+        // Advanced Back to Top Button functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTopButton = document.getElementById('backToTop');
+            let lastScrollTop = 0;
+            let ticking = false;
+            
+            // Show the button when scrolling down past threshold
+            function handleScroll() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                // Only show button after scrolling down 300px
+                if (scrollTop > 300) {
+                    if (!backToTopButton.classList.contains('visible')) {
+                        backToTopButton.classList.add('visible');
+                        // Add pulse animation after button appears
+                        setTimeout(() => {
+                            backToTopButton.style.animation = 'pulse 2s infinite';
+                        }, 1000);
+                    }
+                } else {
+                    backToTopButton.classList.remove('visible');
+                    backToTopButton.style.animation = 'none';
+                }
+                
+                // Remove pulse after user interacts with the page
+                if (Math.abs(scrollTop - lastScrollTop) > 50) {
+                    backToTopButton.style.animation = 'none';
+                }
+                
+                lastScrollTop = scrollTop;
+                ticking = false;
+            }
+            
+            // Throttle scroll events for better performance
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                        handleScroll();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+            
+            // Smooth scroll to top with easing
+            backToTopButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const startPosition = window.pageYOffset;
+                const duration = 800; // ms
+                const startTime = performance.now();
+                
+                function scrollToTop(currentTime) {
+                    const elapsedTime = currentTime - startTime;
+                    
+                    // Easing function: easeOutCubic
+                    const position = startPosition * (1 - (elapsedTime / duration) ** 3);
+                    
+                    window.scrollTo(0, position);
+                    
+                    if (elapsedTime < duration) {
+                        requestAnimationFrame(scrollToTop);
+                    }
+                }
+                
+                requestAnimationFrame(scrollToTop);
+            });
+        });
+    </script>
+    
+    <footer class="fade-in" style="padding: 2rem; margin-top: 4rem; background: var(--footer-bg);">
+        <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+            <p style="margin-bottom: 1rem; font-size: 1.1rem; color: var(--footer-text); font-weight: 300;">Thank you for visiting my portfolio</p>
+            <a href="#" style="display: inline-block; background-color: var(--accent-color); color: white; padding: 0.8rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);">Back to top</a>
+            <p style="margin-top: 2rem; font-size: 0.9rem; color: var(--footer-text); opacity: 0.7;">© 2023 Anshu Gupta. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Mobile navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.getElementById('navToggle');
+            const navMenu = document.getElementById('navMenu');
+            const navLinks = document.querySelectorAll('#navMenu a');
+            
+            // Toggle navigation
+            if (navToggle) {
+                navToggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    navMenu.classList.toggle('active');
+                    this.classList.toggle('active'); // Toggle the active class for hamburger animation
+                });
+            }
+            
+            // Close menu when link is clicked
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('nav')) {
+                    navMenu.classList.remove('active');
+                }
+            });
+        
+            // Dark mode toggle functionality
+            const themeToggle = document.getElementById('themeToggle');
+            
+            // Check for saved theme preference or use device preference
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+            
+            if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        });
+    </script>
+</body>
+</html>
