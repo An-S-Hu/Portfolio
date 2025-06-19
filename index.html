@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting to Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            font-family: 'Poppins', sans-serif;
+            color: #ecf0f1;
+        }
+        .redirect-container {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin: 0 0 1rem 0;
+            font-size: 2rem;
+        }
+        p {
+            margin: 0;
+            opacity: 0.9;
+        }
+        .loading {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="redirect-container">
+        <h1>Redirecting to Portfolio</h1>
+        <p>Please wait while we take you to my portfolio...</p>
+        <div class="loading">If you are not redirected automatically, <a href="portfolio.html" style="color: #3498db; text-decoration: none;">click here</a></div>
+    </div>
+    <script>
+        // Redirect after a short delay
+        setTimeout(function() {
+            window.location.href = 'portfolio.html';
+        }, 1500);
+    </script>
+</body>
+</html>
