@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+      emailjs.init("iNU9Cu68y-gHYPtT1");
+    </script>
     <style>
         :root {
             /* Light Mode (Default) */
@@ -1184,44 +1188,44 @@
                     </div>
                 </div>
             </div>
-
+            
             <!-- Contact Form -->
-<div style="max-width: 600px; width: 100%; margin: auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.05); transition: all 0.3s ease;">
-    <h3 style="font-size: 1.6rem; margin-bottom: 1.5rem; color: var(--text-color); font-weight: 500; display: flex; align-items: center; gap: 10px;">
-        <i class="fas fa-paper-plane" style="color: var(--accent-color);"></i>
-        Send Me a Message
-    </h3>
-
-    <form id="contactForm" style="display: flex; flex-direction: column; gap: 1.2rem;">
-        <div style="position: relative;">
-            <input type="text" id="name" name="name" placeholder="Your Name" required style="width: 95%; padding: 12px 15px 12px 45px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); font-family: 'Poppins', sans-serif; font-size: 1rem; outline: none; transition: all 0.3s ease;">
-            <i class="fas fa-user" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--accent-color);"></i>
+            <div style="flex: 1; min-width: 300px; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.05); transition: all 0.3s ease;">
+                <h3 style="font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--text-color); font-weight: 500; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-paper-plane" style="color: var(--accent-color);"></i>
+                    Send Me a Message
+                </h3>
+                
+                <form id="contactForm" style="display: flex; flex-direction: column; gap: 1.2rem;">
+                    <div style="position: relative;">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required style="width: 100%; padding: 12px 15px 12px 45px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); font-family: 'Poppins', sans-serif; font-size: 1rem; outline: none; transition: all 0.3s ease;">
+                        <i class="fas fa-user" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--accent-color);"></i>
+                    </div>
+                    
+                    <div style="position: relative;">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 12px 15px 12px 45px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); font-family: 'Poppins', sans-serif; font-size: 1rem; outline: none; transition: all 0.3s ease;">
+                        <i class="fas fa-envelope" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--accent-color);"></i>
+                    </div>
+                    
+                    <div style="position: relative;">
+                        <input type="text" id="subject" name="subject" placeholder="Subject" required style="width: 100%; padding: 12px 15px 12px 45px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); font-family: 'Poppins', sans-serif; font-size: 1rem; outline: none; transition: all 0.3s ease;">
+                        <i class="fas fa-tag" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--accent-color);"></i>
+                    </div>
+                    
+                    <div style="position: relative;">
+                        <textarea id="message" name="message" placeholder="Your Message" required style="width: 100%; height: 150px; padding: 12px 15px 12px 45px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); font-family: 'Poppins', sans-serif; font-size: 1rem; outline: none; resize: none; transition: all 0.3s ease;"></textarea>
+                        <i class="fas fa-comment-alt" style="position: absolute; left: 15px; top: 15px; color: var(--accent-color);"></i>
+                    </div>
+                    
+                    <button type="submit" style="background: linear-gradient(135deg, var(--accent-color), #2980b9); color: white; border: none; padding: 12px 25px; border-radius: 50px; cursor: pointer; font-size: 1rem; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s ease;">
+                        <span>Send Message</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    
+                    <div id="formStatus" style="margin-top: 10px; padding: 10px; border-radius: 8px; text-align: center; display: none;"></div>
+                </form>
+            </div>
         </div>
-
-        <div style="position: relative;">
-            <input type="email" id="email" name="email" placeholder="Your Email" required style="width: 95%; padding: 12px 15px 12px 45px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); font-family: 'Poppins', sans-serif; font-size: 1rem; outline: none; transition: all 0.3s ease;">
-            <i class="fas fa-envelope" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--accent-color);"></i>
-        </div>
-
-        <div style="position: relative;">
-            <input type="text" id="subject" name="subject" placeholder="Subject" required style="width: 95%; padding: 12px 15px 12px 45px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); font-family: 'Poppins', sans-serif; font-size: 1rem; outline: none; transition: all 0.3s ease;">
-            <i class="fas fa-tag" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--accent-color);"></i>
-        </div>
-
-        <div style="position: relative;">
-            <textarea id="message" name="message" placeholder="Your Message" required style="width: 95%; height: 150px; padding: 12px 15px 12px 45px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); font-family: 'Poppins', sans-serif; font-size: 1rem; outline: none; resize: none; transition: all 0.3s ease;"></textarea>
-            <i class="fas fa-comment-alt" style="position: absolute; left: 15px; top: 15px; color: var(--accent-color);"></i>
-        </div>
-
-        <button type="submit" style="background: linear-gradient(135deg, var(--accent-color), #2980b9); color: white; border: none; padding: 12px 25px; border-radius: 50px; cursor: pointer; font-size: 1rem; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s ease;">
-            <span>Send Message</span>
-            <i class="fas fa-arrow-right"></i>
-        </button>
-
-        <div id="formStatus" style="margin-top: 10px; padding: 10px; border-radius: 8px; text-align: center; display: none;"></div>
-    </form>
-</div>
-
         
         <!-- Map Section -->
         <div style="margin-top: 3rem; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.05);">
@@ -1348,15 +1352,21 @@
                         showFormStatus('Please enter a valid email address', 'error');
                         return;
                     }
-                    
-                    // Simulate form submission
+
+                    // Send email via EmailJS
                     showFormStatus('Sending your message...', 'info');
-                    
-                    // Simulate API call with timeout
-                    setTimeout(() => {
+                    emailjs.send("service_6pf4i0p", "template_b6jdldt", {
+                        name: name,
+                        email: email,
+                        subject: subject,
+                        title: subject
+                    })
+                    .then(function(response) {
                         showFormStatus('Your message has been sent successfully! I\'ll get back to you soon.', 'success');
                         contactForm.reset();
-                    }, 1500);
+                    }, function(error) {
+                        showFormStatus('Failed to send message. Please try again later.', 'error');
+                    });
                 });
             }
             

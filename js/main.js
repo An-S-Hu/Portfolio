@@ -42,13 +42,16 @@ document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
 });
 
 // Also make "Back to top" link smooth
-document.querySelector('footer a[href="#"]').addEventListener('click', function(e) {
-    e.preventDefault();
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+const backToTopLink = document.querySelector('footer a[href="#"]');
+if (backToTopLink) {
+    backToTopLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
-});
+}
 
 // Particle.js initialization
 if (typeof particlesJS !== 'undefined') {
@@ -256,4 +259,15 @@ window.addEventListener('scroll', () => {
     } else {
         navbar.classList.remove('scrolled');
     }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const navToggle = document.getElementById('navToggle');
+  const navMenu = document.getElementById('navMenu');
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', function() {
+      navMenu.classList.toggle('active');
+      navToggle.classList.toggle('active');
+    });
+  }
 }); 
