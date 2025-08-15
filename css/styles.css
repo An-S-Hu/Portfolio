@@ -1122,3 +1122,362 @@ button, .btn {
   .hide-mobile { display: none !important; }
   .hide-desktop { display: block !important; }
 } 
+
+/* Contact form improvements */
+.error-message {
+    display: none;
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    padding: 5px 10px;
+    background-color: rgba(231, 76, 60, 0.1);
+    border-radius: 4px;
+    border-left: 3px solid #e74c3c;
+}
+
+.visually-hidden {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* Form field focus and error states */
+#contactForm input:focus,
+#contactForm textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    outline: none;
+}
+
+#contactForm input.error,
+#contactForm textarea.error {
+    border-color: #e74c3c;
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
+}
+
+/* Submit button loading state */
+#submitBtn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+#submitBtn .fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Contact form responsive improvements */
+@media (max-width: 900px) {
+    #Contact > div {
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+    }
+    
+    #Contact > div > div {
+        min-width: 0 !important;
+        width: 100% !important;
+    }
+    
+    .contact-card {
+        flex-direction: column !important;
+        text-align: center !important;
+        align-items: center !important;
+    }
+    
+    .contact-card > div:first-child {
+        margin-right: 0 !important;
+        margin-bottom: 1rem !important;
+    }
+}
+
+@media (max-width: 600px) {
+    #Contact {
+        padding: 1.5rem !important;
+        margin: 1rem !important;
+        border-radius: 8px !important;
+    }
+    
+    #Contact h2 {
+        font-size: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    #Contact h3 {
+        font-size: 1.2rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .contact-card {
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 1rem !important;
+        gap: 0.8rem !important;
+        width: 100% !important;
+    }
+    
+    .contact-card > div:first-child {
+        margin-right: 0 !important;
+        margin-bottom: 0.8rem !important;
+    }
+    
+    #Contact form {
+        padding: 1.5rem !important;
+        gap: 1rem !important;
+        width: 100% !important;
+    }
+    
+    #Contact input,
+    #Contact textarea {
+        font-size: 1rem !important;
+        padding-left: 40px !important;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+    
+    #Contact button[type='submit'] {
+        font-size: 1rem !important;
+        padding: 12px 20px !important;
+        width: 100%;
+        min-height: 48px;
+    }
+    
+    .error-message {
+        font-size: 0.8rem !important;
+        padding: 4px 8px !important;
+    }
+    
+    #Contact .social-link {
+        min-width: 140px !important;
+        padding: 10px 12px !important;
+        font-size: 0.95rem !important;
+        width: 100% !important;
+        justify-content: center !important;
+    }
+    
+    #Contact iframe {
+        height: 200px !important;
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 400px) {
+    #Contact {
+        padding: 1rem !important;
+        margin: 0.5rem !important;
+    }
+    
+    #Contact h2 {
+        font-size: 1.3rem !important;
+    }
+    
+    #Contact h3 {
+        font-size: 1.1rem !important;
+    }
+    
+    .contact-card {
+        padding: 0.8rem !important;
+    }
+    
+    #Contact form {
+        padding: 1rem !important;
+    }
+    
+    #Contact input,
+    #Contact textarea {
+        font-size: 0.95rem !important;
+        padding-left: 35px !important;
+    }
+    
+    #Contact button[type='submit'] {
+        font-size: 0.95rem !important;
+        padding: 10px 16px !important;
+    }
+}
+
+/* Ensure proper spacing for error messages */
+#contactForm .form-group {
+    margin-bottom: 0.5rem;
+}
+
+/* Contact form text visibility fixes */
+#contactForm input,
+#contactForm textarea {
+    color: #333 !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.2px !important;
+}
+
+#contactForm input::placeholder,
+#contactForm textarea::placeholder {
+    color: #666 !important;
+    opacity: 1 !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.2px !important;
+}
+
+/* Force text color for better visibility */
+#contactForm input[type="text"],
+#contactForm input[type="email"],
+#contactForm textarea {
+    -webkit-text-fill-color: #333 !important;
+    color: #333 !important;
+}
+
+/* Cross-browser placeholder support */
+#contactForm input::-webkit-input-placeholder,
+#contactForm textarea::-webkit-input-placeholder {
+    color: #666 !important;
+}
+
+#contactForm input::-moz-placeholder,
+#contactForm textarea::-moz-placeholder {
+    color: #666 !important;
+}
+
+#contactForm input:-ms-input-placeholder,
+#contactForm textarea:-ms-input-placeholder {
+    color: #666 !important;
+}
+
+/* Loading state for submit button */
+#submitBtn.loading {
+    position: relative;
+    overflow: hidden;
+}
+
+#submitBtn.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: loading-shimmer 1.5s infinite;
+}
+
+@keyframes loading-shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Contact cards hover effects */
+.contact-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    background-color: rgba(0,0,0,0.05);
+}
+
+.contact-card:hover > div:first-child {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Social links hover effects */
+.social-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.social-link:hover > div {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Form validation visual feedback */
+#contactForm input:valid,
+#contactForm textarea:valid {
+    border-color: rgba(46, 204, 113, 0.3);
+}
+
+#contactForm input:invalid:not(:placeholder-shown),
+#contactForm textarea:invalid:not(:placeholder-shown) {
+    border-color: rgba(231, 76, 60, 0.3);
+}
+
+/* Accessibility improvements */
+#contactForm input:focus-visible,
+#contactForm textarea:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Enhanced Contact Form Styling */
+#contactForm input,
+#contactForm textarea {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #ffffff !important;
+    color: #333 !important;
+    border: 2px solid rgba(0, 0, 0, 0.08) !important;
+    border-radius: 12px !important;
+}
+
+#contactForm input:hover,
+#contactForm textarea:hover {
+    border-color: rgba(52, 152, 219, 0.3) !important;
+    background: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus {
+    border-color: var(--accent-color) !important;
+    background: #ffffff !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.2), 0 4px 15px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+/* Ensure placeholder text is always visible */
+#contactForm input::placeholder,
+#contactForm textarea::placeholder {
+    color: #666 !important;
+    opacity: 1 !important;
+}
+
+/* Consistent styling for ALL form field icons */
+#contactForm input + i,
+#contactForm textarea + i {
+    color: var(--accent-color) !important;
+    z-index: 2;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+/* Icon hover effects */
+#contactForm input:focus + i,
+#contactForm textarea:focus + i {
+    color: var(--accent-color) !important;
+    transform: scale(1.1);
+}
+
+/* Ensure contact form container always has light background */
+.contact-form-container {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%) !important;
+    border: 1px solid rgba(52, 152, 219, 0.1) !important;
+}
+
+/* Force light background for form container in all modes */
+body .contact-form-container,
+[data-theme="dark"] .contact-form-container {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%) !important;
+}
+
+/* Ensure form container heading is always visible */
+.contact-form-container h3 {
+    color: #333 !important;
+}
+
+.contact-form-container h3 > div {
+    background: linear-gradient(135deg, var(--accent-color), #2980b9) !important;
+}

@@ -1147,18 +1147,18 @@
                     <div class="contact-card" style="display: flex; align-items: center; padding: 1rem; border-radius: 8px; background-color: rgba(0,0,0,0.03); transition: all 0.3s ease; cursor: pointer;">
                         <div style="background-color: var(--accent-color); width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-right: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: all 0.3s ease;">
                             <i class="fas fa-envelope" style="color: white; font-size: 18px;"></i>
-                </div>
+                        </div>
                         <div>
                             <p style="font-weight: 500; margin-bottom: 4px; color: var(--text-color);">Email</p>
                             <a href="mailto:anxshugupta@gmail.com" style="color: var(--text-muted); text-decoration: none; font-size: 0.95rem; transition: all 0.3s ease;">anxshugupta@gmail.com</a>
-            </div>
-        </div>
+                        </div>
+                    </div>
         
                     <!-- Phone -->
                     <div class="contact-card" style="display: flex; align-items: center; padding: 1rem; border-radius: 8px; background-color: rgba(0,0,0,0.03); transition: all 0.3s ease; cursor: pointer;">
                         <div style="background-color: #2ecc71; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-right: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: all 0.3s ease;">
                             <i class="fas fa-phone-alt" style="color: white; font-size: 18px;"></i>
-                    </div>
+                        </div>
                         <div>
                             <p style="font-weight: 500; margin-bottom: 4px; color: var(--text-color);">Phone</p>
                             <a href="tel:+9779801991102" style="color: var(--text-muted); text-decoration: none; font-size: 0.95rem; transition: all 0.3s ease;">+977 9801991102</a>
@@ -1190,40 +1190,58 @@
             </div>
             
             <!-- Contact Form -->
-            <div style="flex: 1; min-width: 300px; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.05); transition: all 0.3s ease;">
-                <h3 style="font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--text-color); font-weight: 500; display: flex; align-items: center; gap: 10px;">
-                    <i class="fas fa-paper-plane" style="color: var(--accent-color);"></i>
-                    Send Me a Message
-                </h3>
+            <div class="contact-form-container" style="flex: 1; min-width: 300px; background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); padding: 2.5rem; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08), 0 4px 15px rgba(0,0,0,0.05); transition: all 0.3s ease; border: 1px solid rgba(52, 152, 219, 0.1); position: relative; overflow: hidden;">
+                <!-- Decorative background elements -->
+                <div style="position: absolute; top: -50px; right: -50px; width: 100px; height: 100px; background: radial-gradient(circle, rgba(52, 152, 219, 0.1) 0%, transparent 70%); border-radius: 50%; z-index: 0;"></div>
+                <div style="position: absolute; bottom: -30px; left: -30px; width: 60px; height: 60px; background: radial-gradient(circle, rgba(46, 204, 113, 0.08) 0%, transparent 70%); border-radius: 50%; z-index: 0;"></div>
                 
-                <form id="contactForm" style="display: flex; flex-direction: column; gap: 1.2rem;">
-                    <div style="position: relative;">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required style="width: 100%; padding: 12px 15px 12px 45px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); font-family: 'Poppins', sans-serif; font-size: 1rem; outline: none; transition: all 0.3s ease;">
-                        <i class="fas fa-user" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--accent-color);"></i>
-                    </div>
+                <div style="position: relative; z-index: 1;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 2rem; color: var(--text-color); font-weight: 600; display: flex; align-items: center; gap: 12px; text-align: center; justify-content: center; padding-bottom: 1rem; border-bottom: 2px solid rgba(52, 152, 219, 0.2);">
+                        <div style="background: linear-gradient(135deg, var(--accent-color), #2980b9); width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);">
+                            <i class="fas fa-paper-plane" style="color: white; font-size: 18px;"></i>
+                        </div>
+                        Send Me a Message
+                    </h3>
                     
-                    <div style="position: relative;">
-                        <input type="email" id="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 12px 15px 12px 45px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); font-family: 'Poppins', sans-serif; font-size: 1rem; outline: none; transition: all 0.3s ease;">
-                        <i class="fas fa-envelope" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--accent-color);"></i>
-                    </div>
-                    
-                    <div style="position: relative;">
-                        <input type="text" id="subject" name="subject" placeholder="Subject" required style="width: 100%; padding: 12px 15px 12px 45px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); font-family: 'Poppins', sans-serif; font-size: 1rem; outline: none; transition: all 0.3s ease;">
-                        <i class="fas fa-tag" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--accent-color);"></i>
-                    </div>
-                    
-                    <div style="position: relative;">
-                        <textarea id="message" name="message" placeholder="Your Message" required style="width: 100%; height: 150px; padding: 12px 15px 12px 45px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); font-family: 'Poppins', sans-serif; font-size: 1rem; outline: none; resize: none; transition: all 0.3s ease;"></textarea>
-                        <i class="fas fa-comment-alt" style="position: absolute; left: 15px; top: 15px; color: var(--accent-color);"></i>
-                    </div>
-                    
-                    <button type="submit" style="background: linear-gradient(135deg, var(--accent-color), #2980b9); color: white; border: none; padding: 12px 25px; border-radius: 50px; cursor: pointer; font-size: 1rem; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s ease;">
-                        <span>Send Message</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                    
-                    <div id="formStatus" style="margin-top: 10px; padding: 10px; border-radius: 8px; text-align: center; display: none;"></div>
-                </form>
+                    <form id="contactForm" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div style="position: relative;">
+                            <label for="name" class="visually-hidden">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required style="width: 100%; padding: 15px 15px 15px 50px; border-radius: 12px; border: 2px solid rgba(0,0,0,0.08); font-family: 'Poppins', sans-serif; font-size: 1rem; outline: none; transition: all 0.3s ease; background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); box-sizing: border-box;" aria-describedby="name-error">
+                            <i class="fas fa-user" style="position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--accent-color); font-size: 16px;" aria-hidden="true"></i>
+                            <div id="name-error" class="error-message" style="display: none; color: #e74c3c; font-size: 0.85rem; margin-top: 8px; padding: 8px 12px; background: rgba(231, 76, 60, 0.1); border-radius: 8px; border-left: 3px solid #e74c3c;"></div>
+                        </div>
+                        
+                        <div style="position: relative;">
+                            <label for="email" class="visually-hidden">Your Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 15px 15px 15px 50px; border-radius: 12px; border: 2px solid rgba(0,0,0,0.08); font-family: 'Poppins', sans-serif; font-size: 1rem; outline: none; transition: all 0.3s ease; background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); box-sizing: border-box;" aria-describedby="email-error">
+                            <i class="fas fa-envelope" style="position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--accent-color); font-size: 16px;" aria-hidden="true"></i>
+                            <div id="email-error" class="error-message" style="display: none; color: #e74c3c; font-size: 0.85rem; margin-top: 8px; padding: 8px 12px; background: rgba(231, 76, 60, 0.1); border-radius: 8px; border-left: 3px solid #e74c3c;"></div>
+                        </div>
+                        
+                        <div style="position: relative;">
+                            <label for="subject" class="visually-hidden">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required style="width: 100%; padding: 15px 15px 15px 50px; border-radius: 12px; border: 2px solid rgba(0,0,0,0.08); font-family: 'Poppins', sans-serif; font-size: 1rem; outline: none; transition: all 0.3s ease; background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); box-sizing: border-box;" aria-describedby="subject-error">
+                            <i class="fas fa-tag" style="position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--accent-color); font-size: 16px;" aria-hidden="true"></i>
+                            <div id="subject-error" class="error-message" style="display: none; color: #e74c3c; font-size: 0.85rem; margin-top: 8px; padding: 8px 12px; background: rgba(231, 76, 60, 0.1); border-radius: 8px; border-left: 3px solid #e74c3c;"></div>
+                        </div>
+                        
+                        <div style="position: relative;">
+                            <label for="message" class="visually-hidden">Your Message</label>
+                            <textarea id="message" name="message" placeholder="Your Message" required style="width: 100%; height: 140px; padding: 15px 15px 15px 50px; border-radius: 12px; border: 2px solid rgba(0,0,0,0.08); font-family: 'Poppins', sans-serif; font-size: 1rem; outline: none; resize: none; transition: all 0.3s ease; background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); box-sizing: border-box;" aria-describedby="message-error"></textarea>
+                            <i class="fas fa-comment-alt" style="position: absolute; left: 18px; top: 20px; color: var(--accent-color); font-size: 16px;" aria-hidden="true"></i>
+                            <div id="message-error" class="error-message" style="display: none; color: #e74c3c; font-size: 0.85rem; margin-top: 8px; padding: 8px 12px; background: rgba(231, 76, 60, 0.1); border-radius: 8px; border-left: 3px solid #e74c3c;"></div>
+                        </div>
+                        
+                        <button type="submit" id="submitBtn" style="background: linear-gradient(135deg, var(--accent-color), #2980b9); color: white; border: none; padding: 16px 30px; border-radius: 50px; cursor: pointer; font-size: 1.1rem; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 12px; transition: all 0.3s ease; min-height: 50px; box-shadow: 0 6px 20px rgba(52, 152, 219, 0.3); position: relative; overflow: hidden; margin-top: 0.5rem;">
+                            <span id="submitText">Send Message</span>
+                            <i class="fas fa-arrow-right" id="submitIcon" style="font-size: 16px;"></i>
+                            <!-- Hover effect overlay -->
+                            <div style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(135deg, #2980b9, var(--accent-color)); transition: left 0.3s ease; z-index: -1;"></div>
+                        </button>
+                        
+                        <div id="formStatus" style="margin-top: 15px; padding: 12px 16px; border-radius: 10px; text-align: center; display: none; font-weight: 500; border: 1px solid transparent;"></div>
+                    </form>
+                </div>
             </div>
         </div>
         
@@ -1236,7 +1254,7 @@
             
             <div style="border-radius: 12px; overflow: hidden; height: 300px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114161.8234937776!2d87.1833724!3d26.673631200000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef6c66e80fb5e5%3A0x38094d1a70d37655!2sItahari%2C%20Nepal!5e0!3m2!1sen!2sus!4v1709818325138!5m2!1sen!2sus" 
-                     width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                     width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map showing Itahari, Sunsari, Nepal"></iframe>
             </div>
         </div>
         
@@ -1337,35 +1355,81 @@
                 contactForm.addEventListener('submit', function(e) {
                     e.preventDefault();
                     
-                    // Basic form validation
+                    // Clear previous error messages
+                    clearAllErrors();
+                    
+                    // Get form data
                     const name = document.getElementById('name').value.trim();
                     const email = document.getElementById('email').value.trim();
                     const subject = document.getElementById('subject').value.trim();
                     const message = document.getElementById('message').value.trim();
                     
-                    if (!name || !email || !subject || !message) {
-                        showFormStatus('Please fill in all fields', 'error');
-                        return;
+                    // Validate form fields
+                    let hasErrors = false;
+                    
+                    if (!name) {
+                        showFieldError('name', 'Name is required');
+                        hasErrors = true;
+                    } else if (name.length < 2) {
+                        showFieldError('name', 'Name must be at least 2 characters');
+                        hasErrors = true;
                     }
                     
-                    if (!isValidEmail(email)) {
-                        showFormStatus('Please enter a valid email address', 'error');
+                    if (!email) {
+                        showFieldError('email', 'Email is required');
+                        hasErrors = true;
+                    } else if (!isValidEmail(email)) {
+                        showFieldError('email', 'Please enter a valid email address');
+                        hasErrors = true;
+                    }
+                    
+                    if (!subject) {
+                        showFieldError('subject', 'Subject is required');
+                        hasErrors = true;
+                    } else if (subject.length < 5) {
+                        showFieldError('subject', 'Subject must be at least 5 characters');
+                        hasErrors = true;
+                    }
+                    
+                    if (!message) {
+                        showFieldError('message', 'Message is required');
+                        hasErrors = true;
+                    } else if (message.length < 10) {
+                        showFieldError('message', 'Message must be at least 10 characters');
+                        hasErrors = true;
+                    }
+                    
+                    if (hasErrors) {
+                        showFormStatus('Please correct the errors above', 'error');
                         return;
                     }
 
+                    // Show loading state
+                    setSubmitButtonLoading(true);
+                    
                     // Send email via EmailJS
                     showFormStatus('Sending your message...', 'info');
-                    emailjs.send("service_6pf4i0p", "template_b6jdldt", {
-                        name: name,
-                        email: email,
+                    
+                    // Prepare template parameters
+                    const templateParams = {
+                        from_name: name,
+                        from_email: email,
                         subject: subject,
-                        title: subject
-                    })
+                        message: message,
+                        to_name: 'Anshu Gupta'
+                    };
+                    
+                    // Send email using EmailJS
+                    emailjs.send("service_6pf4i0p", "template_b6jdldt", templateParams)
                     .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
                         showFormStatus('Your message has been sent successfully! I\'ll get back to you soon.', 'success');
                         contactForm.reset();
+                        setSubmitButtonLoading(false);
                     }, function(error) {
-                        showFormStatus('Failed to send message. Please try again later.', 'error');
+                        console.log('FAILED...', error);
+                        showFormStatus('Failed to send message. Please try again later or contact me directly via email.', 'error');
+                        setSubmitButtonLoading(false);
                     });
                 });
             }
@@ -1374,6 +1438,58 @@
             function isValidEmail(email) {
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 return emailRegex.test(email);
+            }
+            
+            // Show field-specific error
+            function showFieldError(fieldId, message) {
+                const errorElement = document.getElementById(`${fieldId}-error`);
+                if (errorElement) {
+                    errorElement.textContent = message;
+                    errorElement.style.display = 'block';
+                }
+                
+                // Highlight the field with error
+                const field = document.getElementById(fieldId);
+                if (field) {
+                    field.style.borderColor = '#e74c3c';
+                    field.style.boxShadow = '0 0 0 3px rgba(231, 76, 60, 0.2)';
+                }
+            }
+            
+            // Clear all field errors
+            function clearAllErrors() {
+                const errorElements = document.querySelectorAll('.error-message');
+                errorElements.forEach(element => {
+                    element.style.display = 'none';
+                });
+                
+                // Reset field styling
+                const formFields = document.querySelectorAll('#contactForm input, #contactForm textarea');
+                formFields.forEach(field => {
+                    field.style.borderColor = 'rgba(0,0,0,0.1)';
+                    field.style.boxShadow = 'none';
+                });
+            }
+            
+            // Set submit button loading state
+            function setSubmitButtonLoading(loading) {
+                const submitBtn = document.getElementById('submitBtn');
+                const submitText = document.getElementById('submitText');
+                const submitIcon = document.getElementById('submitIcon');
+                
+                if (loading) {
+                    submitBtn.disabled = true;
+                    submitBtn.style.opacity = '0.7';
+                    submitBtn.style.cursor = 'not-allowed';
+                    submitText.textContent = 'Sending...';
+                    submitIcon.className = 'fas fa-spinner fa-spin';
+                } else {
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = '1';
+                    submitBtn.style.cursor = 'pointer';
+                    submitText.textContent = 'Send Message';
+                    submitIcon.className = 'fas fa-arrow-right';
+                }
             }
             
             // Display form status message
@@ -1399,7 +1515,7 @@
                     formStatus.style.border = '1px solid rgba(52, 152, 219, 0.2)';
                 }
                 
-                // Clear message after 5 seconds
+                // Clear message after 5 seconds for success/error
                 if (type === 'error' || type === 'success') {
                     setTimeout(() => {
                         formStatus.style.display = 'none';
